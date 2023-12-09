@@ -3,6 +3,8 @@
 #Author: Sunil Nagpal
 #version: 1.0
 #Dependecies: dynamic_hier_counts.py, rdp, raredynamic_curves.r
+#Execution: sh raredynamics.sh
+#code must be run in the same directory as the generated fastq files 
 
 #directory to store time window specific fastas
 mkdir temporals 
