@@ -1,0 +1,1 @@
+**unitemilliondb** is the database we have created using 6499364 ITS sequences in the Full UNITE+INSD dataset for Fungi. Version 18.07.2023. The database allows recent taxonomic assignment and has more than 48000 unique entries in the taxonomy.tsv.
