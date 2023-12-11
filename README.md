@@ -37,7 +37,7 @@ E.g. for Bacteriome:
     cutadapt -g XAGRGTTYGATYMTGGCTCAG  -a AGRGTTYGATYMTGGCTCAGX -a CGGYTACCTTGTTACGACTTX -g XCGGYTACCTTGTTACGACTT -o cutted_bacteria_barcode1.fastq barcode1.fastq --untrimmed-output untrimmed_bacteria_barcode1.fq --revcomp -O 15
 
 This can be repeated for all barcode specific reads.
->Note: During rebasecalling, multiple fastq files are created in each barcode specific directory. Ensure to concatenate them all into a single barcode specific fastq file. You can now assess quality of the sequences specific to bacteriome and mycobiome. Trim the reads to appropriate length or filter reads by their length and quality using: 
+>Note: During rebasecalling, multiple fastq files are created in each barcode specific directory. Ensure to concatenate them all into a single barcode specific fastq file. You can now assess quality of the sequences specific to bacteriome and mycobiome. Trim the reads to appropriate length or filter reads by their length and quality using [fastqprocessor.py](https://github.com/sunilnagpal/EnsembleSeq/blob/main/accessories/fastqprocesser.py): 
 
 ### 4. Species level taxonomic classification
 #### Once the kingdom specific sequences have been segegated into corresponding directories, next step is to perform taxonomic classification. This step requires [EMU](https://gitlab.com/treangenlab/emu).
