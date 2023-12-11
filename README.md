@@ -1,7 +1,7 @@
 # EnsembleSeq
 This repository provides access to the in-silico components of the EnsembleSeq workflow. For details pertaining to the in-vitro components, please refer the manuscript. Briefly, following schematic gives an overview of the overall workflow of EnsembleSeq:
 
-<img src="https://github.com/sunilnagpal/EnsembleSeq/blob/main/img/EnsembleSeq_workflow.jpg" width=60% height=60%>
+<img src="img/EnsembleSeq_workflow.jpg" width=60% height=60%>
 
 
 ## How to run the in-silico component?
@@ -10,11 +10,11 @@ This repository provides access to the in-silico components of the EnsembleSeq w
 
     sh raredynamics.sh
 
-> Access the code here: [raredynamics.sh](https://github.com/sunilnagpal/EnsembleSeq/blob/main/raredynamics.sh)
+> Access the code here: [raredynamics.sh](raredynamics.sh)
 
 > *Following is the schematic representation of the dynamic monitoring of species saturation that can guide the optimal run-time for nanopore sequencing of ensembled amplicons. T1,T2,T3..Tn represent various time points after starting the sequencing run, where T1 refers to the time when first set of sequences are real-time base called and written on the disc. Subsequent time points refer to the events of new sequences being written on disc (for e.g. nanopore guppy basecaller is configured to write 4000 reads in each writing cycle by default). For each time point, all available reads can be concatenated to a single fastq file and the reads can be subjected to direct taxonomic classification (fast but approximate) using RDP classifier, employing both bacterial and fungal databases. The accumulated classified sequences can then be separately analysed for species saturation through rarefaction analysis (using iNEXT library of R programming language) and the rarefaction plot for the given time point can be plotted using ggplot2 library of R.  Taxonomic classifications of independent time point specific sequences (without sequence accumulation) can also be aggregated to the accumulated taxonomic composition of the previous time point to yied the similar temporal trend of rarefaction.* 
 
-<img src="https://github.com/sunilnagpal/EnsembleSeq/blob/main/img/raredynamics.png" width=50% height=50%>
+<img src="img/raredynamics.png" width=50% height=50%>
 
 ### 2. Post completion of run, High accuracy (HAC) (re)basecalling
 #### Once the sequencing has completed, a high accuracy basecalling is recommended (depending on the GPU availability, super high accuracy (sup) models may also be used. Following command ensures that barcodes are trimmed, adapters are trimmed, chimeras are avoided:
@@ -37,7 +37,7 @@ E.g. for Bacteriome:
     cutadapt -g XAGRGTTYGATYMTGGCTCAG  -a AGRGTTYGATYMTGGCTCAGX -a CGGYTACCTTGTTACGACTTX -g XCGGYTACCTTGTTACGACTT -o cutted_bacteria_barcode1.fastq barcode1.fastq --untrimmed-output untrimmed_bacteria_barcode1.fq --revcomp -O 15
 
 This can be repeated for all barcode specific reads.
->Note: During rebasecalling, multiple fastq files are created in each barcode specific directory. Ensure to concatenate them all into a single barcode specific fastq file. You can now assess quality of the sequences specific to bacteriome and mycobiome. Trim the reads to appropriate length or filter reads by their length and quality using [fastqprocessor.py](https://github.com/sunilnagpal/EnsembleSeq/blob/main/accessories/fastqprocesser.py): 
+>Note: During rebasecalling, multiple fastq files are created in each barcode specific directory. Ensure to concatenate them all into a single barcode specific fastq file. You can now assess quality of the sequences specific to bacteriome and mycobiome. Trim the reads to appropriate length or filter reads by their length and quality using [fastqprocessor.py](accessories/fastqprocesser.py): 
 
 ### 4. Species level taxonomic classification
 #### Once the kingdom specific sequences have been segegated into corresponding directories, next step is to perform taxonomic classification. This step requires [EMU](https://gitlab.com/treangenlab/emu).
