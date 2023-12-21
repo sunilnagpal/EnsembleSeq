@@ -1,0 +1,1 @@
+blastn -query FILENAME -db /path/BLASTDB/its/ITS_RefSeq_Fungi -outfmt "6 qseqid qlen length pident evalue sscinames sskingdoms staxids sblastnames scomnames" -max_target_seqs 1 -out BLASTFUN/FILENAME.blastout.txt -max_hsps 1
