@@ -19,7 +19,7 @@ for (i in 0:timepoints) {
 }
 
 #calculate the factor for deciding number of columns of facets, given the detected number of time points
-fact=timepoints/8
+factr=timepoints/8
 
 #if less time windows are detected, draw facets in a single column
 if(factr<0.5)
